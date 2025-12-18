@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>Form Validation Example</h2>
+        <form onsubmit="return validationForm()">
+            <label>Email:</label>
+            <input type="text" id="email" onkeyup="validateEmail()">
+            <span id="emailError" style="color:red"></span><br><br>
+
+            <label>Password (min 6 chars):</label>
+            <input type="password" onkeyup="validatePassword()">
+            <span id="passwordError" style="color:red"></span><br><br>
+
+            <button type="submit">submit</button>
+        </form>
+
+        <script>
+            function validateEmail() {
+                let email = document.getElementById("email").value;
+                let errorSpan = document.getElementById("emailError");
+                if (!email.include("@")) {
+                    errorSpan.innerText = "Invalid email!";
+                    return false;
+                } else {
+                    errorspan.innerText = "";
+                    return true;
+                }
+            }
+
+            function validatePassword() {
+                let pwd = document.getElementById("password").value;
+                let errorspan = document.getElementById("passwordError");
+                if (pwd.length < 6) {
+                    errorspan.innerText = "Password too short";
+                    return false;
+                } else {
+                    errorspan.innerText = "";
+                    return true;
+                }
+            }
+
+            function validateForm() {
+                let isEmailvalid = validateEmail();
+                let isPasswordvalid = validatePassword();
+                if (isEmailvalid && isPasswordvalid) {
+                    alert("Form submitted successfully!");
+                    return true;
+                } else {
+                    alert("Please fix errors before submitting.");
+                    return false;
+                }
+            }
+        </script>
+        
+    </body>
+</html>
