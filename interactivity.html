@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h3>Enable or disable password ineractive</h3>
+        <label><b>Password: </b></label>
+        <input type="password" id="pwd">
+        <button onclick="toggle()">show / Hide</button>
+
+        <script>
+            function toggle() {
+                let input = document.getElementById("pwd");
+
+                if (input.type === "password") {
+                    input.type = "text";
+                }else {
+                    input.type = "password";
+                }
+            }
+        </script>
+    </body>
+</html>
